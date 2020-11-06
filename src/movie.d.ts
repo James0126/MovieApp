@@ -22,14 +22,12 @@ interface MovieListItemData {
 
 }
 
-interface MovieList_Props{
+interface MovieListProps{
     onClick:MouseEvent<HTMLAnchorElement, MouseEvent>
-    apiKeys:string
 }
 
 interface MovieObject{
     movie:Movie
-    apiKeys:string
 }
 
 interface GetAddres{

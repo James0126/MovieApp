@@ -1,13 +1,13 @@
 import React from "react";
 
-export default function Movie_List_Item({ movieData, index, onClick }: MovieListItemData) {
+export default function MovieListItem({ movieData, index, onClick }: MovieListItemData) {
   const imageData: string = "https://image.tmdb.org/t/p/w200/";
   return (
     <article className="movieListItem list-group-item" key={index}>
       <img
         className="movieImg"
         src={imageData + movieData.poster_path}
-        alt="이미지 정보없음"
+        alt="영화 포스터 이미지"
         style={
           movieData.poster_path === null
             ? { width: "250px", height: "300px" }

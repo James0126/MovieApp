@@ -1,7 +1,7 @@
 import React from "react";
 import MovieListItem from "./MovieListItem";
 
-export default function List({ movieArray, loading, onClick}: MovieListData) {
+export default function MovieList({ movieArray, loading, onClick}: MovieListData) {
 
   if (loading) return <div>로딩중...</div>;
   else if (!movieArray) return <div>정보가 없음</div>;

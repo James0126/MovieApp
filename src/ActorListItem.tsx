@@ -1,13 +1,13 @@
 import React from 'react';
 
-export default function Actor_List({actorData}:ActorListItemData){
+export default function ActorListItem({actorData}:ActorListItemData){
     const imageData: string = "https://image.tmdb.org/t/p/w200/";
     return (
         <article className="actorListItem card">
             <img
                 className="actorImg"
                 src={imageData + actorData.profile_path}
-                alt="이미지 정보없음"
+                alt="배우 프로필 이미지"
                 style={
                 actorData.profile_path === null
                     ? { width: "250px", height: "300px"}

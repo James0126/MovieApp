@@ -1,14 +1,14 @@
 import React, { Dispatch } from "react";
 
 export async function searchMovie(
-  apiAddres: string,
+  apiAddress: string,
   setLoading: Dispatch<React.SetStateAction<boolean>>,
   setMovieData: Dispatch<React.SetStateAction<Movie[]>>,
   pageNum: number = 1
 ) {
   try {
     // TODO
-    const response = await fetch(apiAddres + "&page=" + pageNum).then((res) =>
+    const response = await fetch(apiAddress + "&page=" + pageNum).then((res) =>
       res.json()
     );
 

@@ -4,8 +4,6 @@ import MovieListContent from "./MovieListContent";
 import VisitMovieInfo from "./VisitMovieInfo";
 
 function App() {
-  const apiKeys: string = "9b23722584d210cca2fa13d04af8f489";
-
   const [pageName, setPageName] = useState<string>("SearchPage");
   const [movieData, setMovieData] = useState<Movie>({
     id: 0,
@@ -25,9 +23,9 @@ function App() {
 
   const render = () => {
     if (pageName === "SearchPage")
-      return <MovieListContent onClick={setMovie} apiKeys={apiKeys} />;
+      return <MovieListContent onClick={setMovie}/>;
     else if (pageName === "VisitPage")
-      return <VisitMovieInfo movie={movieData} apiKeys={apiKeys}/>;
+      return <VisitMovieInfo movie={movieData}/>;
     //ßelse if(pageName==="VisitHistoryPage") return();
   };
 

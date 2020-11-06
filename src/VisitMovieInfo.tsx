@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import Actor_List from "./ActorList";
 import * as Search from "./Search";
+import * as ApiUrl from "./ApiUrl"
 
-export default function VisitMovieInfo({ movie, apiKeys }: MovieObject) {
+export default function VisitMovieInfo({ movie}: MovieObject) {
   const imageData: string = "https://image.tmdb.org/t/p/w400/";
   const imageBackData: string = "https://image.tmdb.org/t/p/original/";
   const backgroundImage: string = imageBackData + movie.backdrop_path;
@@ -11,7 +12,7 @@ export default function VisitMovieInfo({ movie, apiKeys }: MovieObject) {
   const [loading, setLoading] = useState<boolean>(true);
   useEffect(()=>{
     window.history.replaceState(null, "title", "/visit");
-    Search.searchActors(apiKeys, setLoading, setActors, movie.id);
+    Search.searchActors(ApiUrl.key, setLoading, setActors, movie.id);
   }, [])
 
   return (
@@ -29,7 +30,7 @@ export default function VisitMovieInfo({ movie, apiKeys }: MovieObject) {
         <article className="movieVisitInfo">
           <img
             src={imageData + movie.poster_path}
-            alt="이미지 정보없음"
+            alt="포스터 이미지"
             className="visitTitleImg"
             style={
               movie.poster_path === null
