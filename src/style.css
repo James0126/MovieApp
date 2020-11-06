@@ -1,0 +1,136 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+.App{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    height: 100px;
+}
+.headerTitle{
+    margin-left: 50px;
+}
+.bodyContent{
+    display: flex;
+    flex-flow: column wrap;
+    align-content: center;
+}
+.sortBar{
+    height: 150px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.sortButton{
+    width: 200px;
+    height: 50px;
+}
+.movieList{
+    overflow: scroll;
+    height: 930px;
+    width: 90%;
+}
+.movieListItem{
+    display: flex;
+}
+.movieSummary{
+    margin-top: 30px;
+}
+.movieName{
+    font-size: 3rem;
+}
+.movieText{
+    margin-left: 20px;
+}
+.movieImg{
+    border-radius: 15px;
+}
+.searchInputSpace{
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.searchInputField{
+    height: 40px;
+    width: 400px;
+    padding-left: 10px;
+    padding-right: 60px;
+    font-size: 1.5rem;
+}
+.searchButton{
+    border-radius: 20px;
+    height: 40px;
+    width: 80px;
+    position: relative;
+    right: 50px;   
+}
+.movieVisitLink{
+    color: black;
+}
+.movieVisitLink:hover{
+    color: black;
+}
+.movieVisitInfo{
+    margin-top: 40px;
+    display: flex;
+    color: white;
+    position: absolute;
+    top: 10;
+    margin-left: 70px;    
+}
+.backGroundImg{
+    height: 700px;
+    opacity: 0.1;
+}
+.visitTop{
+    background-color: #2E2E2E;
+    width: 100%;
+}
+.visitTitleImg{
+    border-radius: 15px;
+}
+.visitMovieName{
+    font-size: 4rem;
+    font-weight: bold;
+}
+.listFooter{
+    display: flex;
+    justify-content: space-evenly;
+}
+.pageButton{
+    width: 100px;
+    height: 50px;
+    margin: 10px 0px;
+}
+.actorListSpaceTitle{
+    margin-left: 80px;
+}
+.actorName{
+    font-size: 1.3rem;
+}
+.actorCharacterName{
+    font-size: 1.3rem
+}
+.actorImg{
+    border-radius: 15px;
+}
+.actorListWrapper{
+    height: 500px;
+    width: 1000px;
+}
+.actorList{
+    display: flex;
+    overflow-x: auto;
+    margin-left: 40px;
+}
+.actorListItem{
+    width: 200px;
+    display: flex;
+    flex-shrink: 0;
+    margin-left: 40px;
+}
+
