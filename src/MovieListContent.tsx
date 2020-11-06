@@ -103,13 +103,13 @@ export default function SearchMovieList({ onClick, apiKeys }: MovieList_Props) {
       <MovieList movieArray={movieData} loading={loading} onClick={findMovie} />
       <div className="listFooter">
         <button
-          onClick={() => pressButton("prev")}
+          //onClick={() => pressButton("prev")}
           className="pageButton btn btn-secondary"
         >
           이전
         </button>
         <button
-          onClick={() => pressButton("next")}
+          //onClick={() => pressButton("next")}
           className="pageButton btn btn-secondary"
         >
           다음
