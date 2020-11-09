@@ -16,43 +16,48 @@
 .bodyContent{
     display: flex;
     flex-flow: column wrap;
-    align-content: center;
+    align-content: center ;
 }
-.sortBar{
-    height: 150px;
-    display: flex;
-    align-items: center;
-    justify-content: space-evenly;
-}
-.sortButton{
-    width: 200px;
-    height: 50px;
+.listWrapper{
+    width: 80%;
+    margin-bottom: 50px;
 }
 .movieList{
-    overflow: scroll;
-    height: 930px;
-    width: 90%;
+    display: flex;
+    flex-direction: row;
+    overflow-x: auto;
+    height: 400px;
 }
 .movieListItem{
-    display: flex;
+    margin-right: 30px;
+    margin-top: 10px;
 }
 .movieSummary{
     margin-top: 30px;
 }
 .movieName{
-    font-size: 3rem;
+    font-weight: bold;
+    font-size: 1.3rem;
 }
 .movieText{
-    margin-left: 20px;
+    margin-top: 20px;
 }
 .movieImg{
     border-radius: 15px;
 }
-.searchInputSpace{
+.searchInputSpaceMain{
     height: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.searchInputSpaceSub{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 60px;
+    left: calc(50% - 250px);
+    position: fixed;
 }
 .searchInputField{
     height: 40px;
@@ -68,6 +73,13 @@
     position: relative;
     right: 50px;   
 }
+.searchMovieList{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    align-self: center;
+    margin-left: 5%;
+}
 .movieVisitLink{
     color: black;
 }
@@ -81,6 +93,9 @@
     position: absolute;
     top: 10;
     margin-left: 70px;    
+}
+.movieInfoText{
+    margin-left: 20px;
 }
 .backGroundImg{
     height: 700px;

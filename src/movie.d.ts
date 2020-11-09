@@ -10,24 +10,32 @@ interface Movie {
 }
 
 interface MovieListData{
-    movieArray:Movie[]
-    loading:boolean
-    onClick:MouseEvent<HTMLAnchorElement, MouseEvent>
+    url:string
+    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
 }
 
 interface MovieListItemData {
     movieData:Movie
     index:number
-    onClick:MouseEvent<HTMLAnchorElement, MouseEvent>
+    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
 
 }
 
 interface MovieListProps{
-    onClick:MouseEvent<HTMLAnchorElement, MouseEvent>
+    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+}
+
+interface MovieSearchSpace{
+    pageState:string
+    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
 }
 
 interface MovieObject{
     movie:Movie
+}
+
+interface MovieArrayObject{
+    movieArray:Movie[]
 }
 
 interface GetAddres{
