@@ -5,6 +5,7 @@ import*as Search from "./Search"
 export default function MovieList({
   url,
   clickFn,
+  pageState
 }: MovieListData) {
 
 const [loading, setLoading] = useState<boolean>(true);
@@ -28,6 +29,7 @@ useEffect(()=>{
               index={index}
               clickFn={clickFn}
               key={index}
+              pageState={pageState}
             />
           );
         })}

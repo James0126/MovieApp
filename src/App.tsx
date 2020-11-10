@@ -35,7 +35,7 @@ function App() {
     else if (pageName === "VisitPage")
       return <VisitMovieInfo movie={movieData}/>;
     else if(pageName==="SearchPage") 
-      return <SearchPage url={searchQuery} clickFn={setMovie}/>
+      return <SearchPage url={searchQuery} clickFn={setMovie} pageState={"SearchPage"}/>
   };
 
   return (

@@ -12,13 +12,14 @@ interface Movie {
 interface MovieListData{
     url:string
     clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    pageState:string
 }
 
 interface MovieListItemData {
     movieData:Movie
     index:number
     clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-
+    pageState:string
 }
 
 interface MovieListProps{
