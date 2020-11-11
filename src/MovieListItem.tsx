@@ -3,7 +3,7 @@ import React from "react";
 export default function MovieListItem({
   movieData,
   index,
-  clickFn,
+  searchMovieFn,
   pageState,
 }: MovieListItemData) {
   const imageData: string = "https://image.tmdb.org/t/p/w154/";
@@ -13,13 +13,9 @@ export default function MovieListItem({
         pageState === "MainPage" ? "movieListItemMain" : "movieListItemSub"
       }
       key={index}
-      onClick={()=>clickFn(movieData, "VisitPage")}
+      onClick={() => searchMovieFn(movieData.id)}
     >
-      <a
-        href="#"
-        className="movieVisitLink"
-        onClick={() => clickFn(movieData, "VisitPage")}
-      >
+      <div className="movieVisitLink">
         <img
           className="movieImg"
           src={imageData + movieData.poster_path}
@@ -30,17 +26,15 @@ export default function MovieListItem({
               : {}
           }
         />
-      </a>
-      <article className={pageState === "MainPage" ? "movieTextMain" : "movieTextSub"}>
+      </div>
+      <article
+        className={pageState === "MainPage" ? "movieTextMain" : "movieTextSub"}
+      >
         <nav>
-          <a
-            href="#"
-            className="movieVisitLink"
-            onClick={() => clickFn(movieData, "VisitPage")}
-          >
+          <div className="movieVisitLink">
             <h1 className="movieName">{movieData.title}</h1>
             <time className="movieReleaseDate">{movieData.release_date}</time>
-          </a>
+          </div>
         </nav>
       </article>
     </article>

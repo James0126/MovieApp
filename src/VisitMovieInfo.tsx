@@ -1,22 +1,32 @@
 import React, { useEffect, useState } from "react";
-import Actor_List from "./ActorList";
+import ActorList from "./ActorList";
 import * as Search from "./Search";
-import * as ApiUrl from "./ApiUrl";
 
-export default function VisitMovieInfo({ movie }: MovieObject) {
+export default function VisitMovieInfo({ movieId }: MovieIdObject) {
   const imageData: string = "https://image.tmdb.org/t/p/w400/";
   const imageBackData: string = "https://image.tmdb.org/t/p/original";
-  const backgroundImage: string = imageBackData + movie.backdrop_path;
 
-  console.log(backgroundImage);
-
-  const [actors, setActors] = useState<ActorInfo[]>([]);
+  const [movieData, setMovieData] = useState<Movie>({
+    id: 0,
+    release_date: "null",
+    popularity: 0,
+    overview: "null",
+    backdrop_path: "null",
+    title: "null",
+    poster_path: "null",
+    original_language: "null",
+  });
+  const backgroundImage: string = imageBackData + movieData.backdrop_path;
   const [loading, setLoading] = useState<boolean>(true);
-  useEffect(() => {
-    Search.searchActors(ApiUrl.key, setLoading, setActors, movie.id);
-  }, []);
 
-  return (
+  useEffect(() => {
+    Search.searchMovieItem(movieId.toString(), setLoading, setMovieData);
+  }, [movieId]);
+  return loading ? (
+    <span>로딩중...</span>
+  ) : !movieData ? (
+    <span>정보가 없음</span>
+  ) : (
     <section className="bodyContent">
       <div className="visitTop">
         <div
@@ -30,29 +40,32 @@ export default function VisitMovieInfo({ movie }: MovieObject) {
       </div>
       <article className="movieVisitInfo">
         <img
-          src={imageData + movie.poster_path}
+          src={imageData + movieData.poster_path}
           alt="포스터 이미지"
           className="visitTitleImg"
           style={
-            movie.poster_path === null
+            movieData.poster_path === null
               ? { width: "250px", height: "300px" }
               : {}
           }
         />
         <article className="movieInfoText">
-          <h1 className="visitMovieName">{movie.title}</h1>
+          <h1 className="visitMovieName">{movieData.title}</h1>
           <time className="movieReleaseDate">
-            개봉날짜 : {movie.release_date}
+            개봉날짜 : {movieData.release_date}
           </time>
-          <p className="movieSummary">
-            <h2>개요</h2> {movie.overview === "" ? "정보없음" : movie.overview}
-          </p>
+          <article className="movieSummary">
+            <h2>개요</h2>{" "}
+            <p className="movieOverView">
+              {movieData.overview === "" ? "정보없음" : movieData.overview}
+            </p>
+          </article>
         </article>
       </article>
       <hr />
       <div className="actorListSpace">
         <h1 className="actorListSpaceTitle">출연진</h1>
-        <Actor_List actorList={actors} loading={loading} />
+        <ActorList movieId={movieId} />
       </div>
     </section>
   );

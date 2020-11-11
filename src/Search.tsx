@@ -1,6 +1,6 @@
 import React, { Dispatch } from "react";
 
-export async function searchMovie(
+export async function searchMovieArray(
   apiAddress: string,
   setLoading: Dispatch<React.SetStateAction<boolean>>,
   setMovieData: Dispatch<React.SetStateAction<Movie[]>>,
@@ -13,7 +13,27 @@ export async function searchMovie(
     );
 
     response === null ? setLoading(true) : setMovieData(response.results);
-    console.log(response.results);
+  } catch (e) {
+    throw new Error(e);
+    // TODO
+  }
+  setLoading(false);
+}
+
+export async function searchMovieItem(
+  movieId: string,
+  setLoading: Dispatch<React.SetStateAction<boolean>>,
+  setMovieData: Dispatch<React.SetStateAction<Movie>>
+) {
+  try {
+    // TODO
+    const response = await fetch(
+      "https://api.themoviedb.org/3/movie/" +
+        movieId +
+        "?api_key=9b23722584d210cca2fa13d04af8f489&language=ko"
+    ).then((res) => res.json());
+
+    response === null ? setLoading(true) : setMovieData(response);
   } catch (e) {
     throw new Error(e);
     // TODO
@@ -36,11 +56,10 @@ export async function searchActors(
         apikey
     ).then((res) => res.json());
 
-    response === null ? setLoading(true):setActorData(response.cast);
+    response === null ? setLoading(true) : setActorData(response.cast);
   } catch (e) {
     throw new Error(e);
     // TODO
   }
   setLoading(false);
-
 }

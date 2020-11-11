@@ -11,28 +11,28 @@ interface Movie {
 
 interface MovieListData{
     url:string
-    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
     pageState:string
 }
 
 interface MovieListItemData {
     movieData:Movie
     index:number
-    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
     pageState:string
 }
 
 interface MovieListProps{
-    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
 }
 
 interface MovieSearchSpace{
     pageState:string
-    clickFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
 }
 
-interface MovieObject{
-    movie:Movie
+interface MovieIdObject{
+    movieId:number
 }
 
 interface MovieArrayObject{
@@ -56,8 +56,7 @@ interface ActorInfo{
 }
 
 interface ActorListData{
-    actorList:ActorInfo[]
-    loading:boolean
+    movieId:number
 }
 
 interface ActorListItemData{

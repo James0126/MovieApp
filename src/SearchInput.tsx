@@ -1,7 +1,10 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from "react";
 import * as ApiUrl from "./ApiUrl";
 
-export default function SearchInput({ clickFn, pageState }: MovieSearchSpace) {
+export default function SearchInput({
+  searchMovieFn,
+  pageState,
+}: MovieSearchSpace) {
   const [inputData, setInputData] = useState<string>("");
 
   const onChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -10,13 +13,12 @@ export default function SearchInput({ clickFn, pageState }: MovieSearchSpace) {
 
   const handleKeyPress = (event: KeyboardEvent): void => {
     if (event.key === "Enter" && inputData !== "")
-      clickFn(ApiUrl.searchQuery + inputData, "SearchPage");
-    else return;
+      searchMovieFn(ApiUrl.searchQuery + inputData, "SearchPage");
   };
 
   return (
     <section>
-      <form
+      <div
         className={
           pageState === "MainPage"
             ? "searchInputSpaceMain"
@@ -35,13 +37,13 @@ export default function SearchInput({ clickFn, pageState }: MovieSearchSpace) {
         />
         <button
           onClick={() => {
-            clickFn(ApiUrl.searchQuery + inputData, "SearchPage");
+            searchMovieFn(ApiUrl.searchQuery + inputData, "SearchPage");
           }}
           className="input-group-text"
         >
           검색
         </button>
-      </form>
+      </div>
     </section>
   );
 }
