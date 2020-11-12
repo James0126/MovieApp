@@ -11,49 +11,63 @@ function App() {
 
   const [searchQuery, setSearchQuery] = useState<string>("");
 
-  const render = () =>
-    pageName === "MainPage" ? (
-      <MainPageList searchMovieFn={setMovie} />
-    ) : pageName === "SearchPage" ? (
-      <SearchPage
-        url={searchQuery}
-        searchMovieFn={setMovie}
-        pageState={"SearchPage"}
-      />
-    ) : (
-      movieId && <VisitMovieInfo movieId={movieId} />
-    );
-
   useEffect(() => {
     window.addEventListener("popstate", listenToPopstate);
     return () => {
       window.removeEventListener("popstate", listenToPopstate);
     };
   }, []);
-  const listenToPopstate = () => {
-      const winPath:string = window.location.pathname;
-      setPageName(winPath);
-  };
- 
-  useEffect(() => {
-    const page: string[] = window.location.href.split("/");
-    page[3] === "" ? setPageName("MainPage") : setPageName(page[3]);
-    if (page[3] !== "MainPage" && page[3] !== "SearchPage")
-      setMovieId(parseInt(page[3]));
+  const listenToPopstate = () => setPageName(window.location.pathname);
 
+  useEffect(() => {
+    const pageUrl: string[] = window.location.href.split("/");
+    const searchUrl: string[] = window.location.href.split("=");
+
+    pageUrl[pageUrl.length - 1] === ""
+      ? setPageName("MainPage")
+      : pageUrl[pageUrl.length - 2] === "SearchPage"
+      ? setSearchData(searchUrl[searchUrl.length-1], "SearchPage")
+      : setPageName(pageUrl[pageUrl.length - 1]);
+    if (
+      pageUrl[pageUrl.length - 1] !== "MainPage" &&
+      pageUrl[pageUrl.length - 2] !== "SearchPage"
+    )
+      setMovieId(parseInt(pageUrl[pageUrl.length - 1]));
   }, [pageName]);
 
   const setMovie = (movieId: number) => {
-    window.history.pushState(null, "title", movieId.toString());
+    window.history.pushState(null, "title", "../Info/" + movieId.toString());
     const pageUrl: string[] = window.location.href.split("/");
-    setPageName(pageUrl[3]);
+    setPageName(pageUrl[pageUrl.length - 1]);
     setMovieId(movieId);
   };
 
-  const searchMovieArray = (searchQuery: string, page: string) => {
+  const setSearchData = (searchQuery: string, page: string) =>{
     setPageName(page);
     setSearchQuery(searchQuery);
+  }
+
+  const searchMovieArray = (searchQuery: string, page: string) => {
+    setSearchData(searchQuery, page);
+    window.history.pushState(
+      null,
+      "title",
+      "../SearchPage/search?query=" + searchQuery
+    );
   };
+
+  const render = () =>
+    pageName === "MainPage" ? (
+      <MainPageList searchMovieFn={setMovie} />
+    ) : pageName === "SearchPage" ? (
+      <SearchPage
+        query={searchQuery}
+        searchMovieFn={setMovie}
+        pageState={"SearchPage"}
+      />
+    ) : (
+      movieId && <VisitMovieInfo movieId={movieId} />
+    );
 
   return (
     <div className="App">

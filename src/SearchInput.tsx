@@ -1,5 +1,4 @@
 import React, { ChangeEvent, useState, KeyboardEvent } from "react";
-import * as ApiUrl from "./ApiUrl";
 
 export default function SearchInput({
   searchMovieFn,
@@ -13,7 +12,7 @@ export default function SearchInput({
 
   const handleKeyPress = (event: KeyboardEvent): void => {
     if (event.key === "Enter" && inputData !== "")
-      searchMovieFn(ApiUrl.searchQuery + inputData, "SearchPage");
+      searchMovieFn(inputData, "SearchPage");
   };
 
   return (
@@ -37,7 +36,7 @@ export default function SearchInput({
         />
         <button
           onClick={() => {
-            searchMovieFn(ApiUrl.searchQuery + inputData, "SearchPage");
+            searchMovieFn(inputData, "SearchPage");
           }}
           className="input-group-text"
         >

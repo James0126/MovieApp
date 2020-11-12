@@ -1,18 +1,23 @@
 import React, { useState, useEffect } from "react";
 import MovieListItem from "./MovieListItem";
 import * as Search from "./Search";
+import * as ApiUrl from "./ApiUrl";
 
 export default function SearchPage({
-  url,
+  query,
   searchMovieFn,
   pageState,
-}: MovieListData) {
+}: MovieSearchQuery) {
   const [movieData, setMovieData] = useState<Movie[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
 
   useEffect(() => {
-    Search.searchMovieArray(url, setLoading, setMovieData);
-  }, [url]);
+    Search.searchMovieArray(
+      ApiUrl.searchQuery + query,
+      setLoading,
+      setMovieData
+    );
+  }, [query]);
 
   return loading ? (
     <span>로딩중...</span>

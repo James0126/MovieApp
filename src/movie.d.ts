@@ -14,7 +14,11 @@ interface MovieListData{
     searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
     pageState:string
 }
-
+interface MovieSearchQuery{
+    query:string
+    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
+    pageState:string
+}
 interface MovieListItemData {
     movieData:Movie
     index:number
