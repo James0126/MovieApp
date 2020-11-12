@@ -24,31 +24,24 @@ function App() {
       movieId && <VisitMovieInfo movieId={movieId} />
     );
 
-  const useReactPath = () => {
-    const [path, setPath] = useState(window.location.pathname);
-    const listenToPopstate = () => {
-      const winPath = window.location.pathname;
-      setPath(winPath);
+  useEffect(() => {
+    window.addEventListener("popstate", listenToPopstate);
+    return () => {
+      window.removeEventListener("popstate", listenToPopstate);
     };
-    useEffect(() => {
-      window.addEventListener("popstate", listenToPopstate);
-      return () => {
-        window.removeEventListener("popstate", listenToPopstate);
-      };
-    }, []);
-    return path;
+  }, []);
+  const listenToPopstate = () => {
+      const winPath:string = window.location.pathname;
+      setPageName(winPath);
   };
-  
-  const path = useReactPath();
-
+ 
   useEffect(() => {
     const page: string[] = window.location.href.split("/");
     page[3] === "" ? setPageName("MainPage") : setPageName(page[3]);
     if (page[3] !== "MainPage" && page[3] !== "SearchPage")
       setMovieId(parseInt(page[3]));
 
-    console.log(window.location.href);
-  }, [path]);
+  }, [pageName]);
 
   const setMovie = (movieId: number) => {
     window.history.pushState(null, "title", movieId.toString());

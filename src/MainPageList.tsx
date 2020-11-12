@@ -1,13 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
 import MovieList from "./MovieList";
 import * as ApiUrl from "./ApiUrl";
 
 export default function MainPageList({ searchMovieFn }: MovieListProps) {
-
-  useEffect(()=>{
-    window.history.pushState(null, "title", "MainPage");
-  },[])
-  
   return (
     <section className="bodyContent">
       <article className="listWrapper">
