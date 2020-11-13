@@ -23,6 +23,13 @@ export default function SearchInput({
             ? "searchInputSpaceMain"
             : "searchInputSpaceSub"
         }
+        style={
+          pageState === "SearchPage"
+            ? { position: "fixed" }
+            : pageState === "MainPage"
+            ? {}
+            : { position: "absolute" }
+        }
       >
         <input
           type="text"

@@ -62,11 +62,10 @@ export default function VisitMovieInfo({ movieId }: MovieIdObject) {
           </article>
         </article>
       </article>
-      <hr />
-      <div className="actorListSpace">
+      <article className="actorListSpace">
         <h1 className="actorListSpaceTitle">출연진</h1>
         <ActorList movieId={movieId} />
-      </div>
+      </article>
     </section>
   );
 }

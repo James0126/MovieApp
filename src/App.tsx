@@ -1,39 +1,15 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import MainPageList from "./MainPageList";
 import VisitMovieInfo from "./VisitMovieInfo";
 import SearchPage from "./SearchPage";
 import SearchInput from "./SearchInput";
+import useHistoryManager from "./useHistoryManager";
 
 function App() {
   const [pageName, setPageName] = useState<string>("");
   const [movieId, setMovieId] = useState<number>();
-
   const [searchQuery, setSearchQuery] = useState<string>("");
-
-  useEffect(() => {
-    window.addEventListener("popstate", listenToPopstate);
-    return () => {
-      window.removeEventListener("popstate", listenToPopstate);
-    };
-  }, []);
-  const listenToPopstate = () => setPageName(window.location.pathname);
-
-  useEffect(() => {
-    const pageUrl: string[] = window.location.href.split("/");
-    const searchUrl: string[] = window.location.href.split("=");
-
-    pageUrl[pageUrl.length - 1] === ""
-      ? setPageName("MainPage")
-      : pageUrl[pageUrl.length - 2] === "SearchPage"
-      ? setSearchData(searchUrl[searchUrl.length-1], "SearchPage")
-      : setPageName(pageUrl[pageUrl.length - 1]);
-    if (
-      pageUrl[pageUrl.length - 1] !== "MainPage" &&
-      pageUrl[pageUrl.length - 2] !== "SearchPage"
-    )
-      setMovieId(parseInt(pageUrl[pageUrl.length - 1]));
-  }, [pageName]);
 
   const setMovie = (movieId: number) => {
     window.history.pushState(null, "title", "../Info/" + movieId.toString());
@@ -42,19 +18,17 @@ function App() {
     setMovieId(movieId);
   };
 
-  const setSearchData = (searchQuery: string, page: string) =>{
+  const searchMovieArray = (searchQuery: string, page: string) => {
     setPageName(page);
     setSearchQuery(searchQuery);
-  }
-
-  const searchMovieArray = (searchQuery: string, page: string) => {
-    setSearchData(searchQuery, page);
     window.history.pushState(
       null,
       "title",
       "../SearchPage/search?query=" + searchQuery
     );
   };
+
+  useHistoryManager(setPageName, setSearchQuery, setMovieId, pageName);
 
   const render = () =>
     pageName === "MainPage" ? (
@@ -72,7 +46,7 @@ function App() {
   return (
     <div className="App">
       <header className="header card-header">
-        <h1 className="headertitle card-title">Title</h1>
+        <a href="/" className="headerTitle">Movie</a>
       </header>
       <section>
         <SearchInput searchMovieFn={searchMovieArray} pageState={pageName} />

@@ -1,166 +1,174 @@
-*{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
-.App{
-    display: flex;
-    flex-direction: column;
+.App {
+  display: flex;
+  flex-direction: column;
 }
-.header{
-    height: 100px;
+.header {
+  height: 100px;
 }
-.headerTitle{
-    margin-left: 50px;
+.headerTitle {
+  margin-left: 50px;
+  color: black;
+  font-size: 3rem;
+  font-weight: bold;
 }
-.bodyContent{
-    display: flex;
-    flex-flow: column wrap;
-    align-content: center ;
+.headerTitle:hover {
+  color: black;
+  text-decoration: none;
 }
-.listWrapper{
-    width: 80%;
-    margin-bottom: 50px;
+.bodyContent {
+  display: flex;
+  flex-flow: column wrap;
+  align-content: center;
 }
-.movieList{
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    height: 400px;
+.listWrapper {
+  width: 80%;
+  margin-bottom: 50px;
 }
-.movieListItemMain{
-    margin-right: 30px;
-    margin-top: 10px;
-    cursor: grab;
+.movieList {
+  display: flex;
+  flex-direction: row;
+  overflow-x: auto;
+  height: 400px;
 }
-.movieListItemSub{
-    margin-top: 30px;
-    border: 1px solid rgba(0, 0, 0, 0.2);
-    border-radius: 15px;
-    display: flex;
-    padding: 10px;
-    cursor: grab;
+.movieListItemMain {
+  margin-right: 30px;
+  margin-top: 10px;
+  cursor: grab;
 }
-.movieSummary{
-    margin-top: 30px;
+.movieListItemSub {
+  margin-top: 30px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 15px;
+  display: flex;
+  padding: 10px;
+  cursor: grab;
 }
-.movieName{
-    font-weight: bold;
-    font-size: 1.3rem;
+.movieSummary {
+  margin-top: 30px;
 }
-.movieOverView{
-    margin-right: 100px;
+.movieName {
+  font-weight: bold;
+  font-size: 1.3rem;
 }
-.movieTextMain{
-    margin-top: 20px;
+.movieOverView {
+  margin-right: 100px;
 }
-.movieTextSub{
-    margin-left: 30px;
+.movieTextMain {
+  margin-top: 20px;
 }
-.movieImg{
-    border-radius: 15px;
+.movieTextSub {
+  margin-left: 30px;
 }
-.searchInputSpaceMain{
-    height: 300px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.movieImg {
+  border-radius: 15px;
 }
-.searchInputSpaceSub{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    top: 60px;
-    left: calc(50% - 250px);
-    position: fixed;
+.searchInputSpaceMain {
+  height: 300px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.searchInputField{
-    height: 40px;
-    width: 400px;
-    padding-left: 10px;
-    padding-right: 60px;
-    font-size: 1.5rem;
+.searchInputSpaceSub {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  top: 60px;
+  left: calc(50% - 250px);
 }
-.searchButton{
-    border-radius: 20px;
-    height: 40px;
-    width: 80px;
-    position: relative;
-    right: 50px;   
+.searchInputField {
+  height: 40px;
+  width: 400px;
+  padding-left: 10px;
+  padding-right: 60px;
+  font-size: 1.5rem;
 }
-.searchMovieList{
-    display: flex;
-    flex-direction: column;
-    width: 90%;
-    align-self: center;
-    margin-left: 5%;
+.searchButton {
+  border-radius: 20px;
+  height: 40px;
+  width: 80px;
+  position: relative;
+  right: 50px;
 }
-.movieVisitLink{
-    color: black;
+.searchMovieList {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  align-self: center;
+  margin-left: 5%;
 }
-.movieVisitLink:hover{
-    color: black;
+.movieVisitLink {
+  color: black;
 }
-.movieVisitInfo{
-    margin-top: 40px;
-    display: flex;
-    color: white;
-    position: absolute;
-    top: 10;
-    margin-left: 70px;    
+.movieVisitLink:hover {
+  color: black;
 }
-.movieInfoText{
-    margin-left: 20px;
+.movieVisitInfo {
+  margin-top: 40px;
+  display: flex;
+  color: white;
+  position: absolute;
+  top: 10;
+  margin-left: 70px;
 }
-.backGroundImg{
-    height: 700px;
-    opacity: 0.1;
+.movieInfoText {
+  margin-left: 20px;
 }
-.visitTop{
-    background-color: #2E2E2E;
-    width: 100%;
+.backGroundImg {
+  height: 700px;
+  opacity: 0.1;
 }
-.visitTitleImg{
-    border-radius: 15px;
+.visitTop {
+  background-color: #2e2e2e;
+  width: 100%;
 }
-.visitMovieName{
-    font-size: 4rem;
-    font-weight: bold;
+.visitTitleImg {
+  border-radius: 15px;
 }
-.listFooter{
-    display: flex;
-    justify-content: space-evenly;
+.visitMovieName {
+  font-size: 4rem;
+  font-weight: bold;
 }
-.pageButton{
-    width: 100px;
-    height: 50px;
-    margin: 10px 0px;
+.listFooter {
+  display: flex;
+  justify-content: space-evenly;
 }
-.actorListSpaceTitle{
-    margin-left: 80px;
+.pageButton {
+  width: 100px;
+  height: 50px;
+  margin: 10px 0px;
 }
-.actorName{
-    font-size: 1.3rem;
+.actorListSpace {
+  margin-top: 30px;
 }
-.actorCharacterName{
-    font-size: 1.3rem
+.actorListSpaceTitle {
+  margin-left: 80px;
 }
-.actorImg{
-    border-radius: 15px;
+.actorName {
+  font-size: 1.3rem;
 }
-.actorListWrapper{
-    height: 500px;
-    width: 1000px;
+.actorCharacterName {
+  font-size: 1.3rem;
 }
-.actorList{
-    display: flex;
-    overflow-x: auto;
-    margin-left: 40px;
+.actorImg {
+  border-radius: 15px;
 }
-.actorListItem{
-    width: 200px;
-    display: flex;
-    flex-shrink: 0;
-    margin-left: 40px;
+.actorListWrapper {
+  height: 500px;
+  width: 1000px;
 }
-
+.actorList {
+  display: flex;
+  overflow-x: auto;
+  margin-left: 40px;
+}
+.actorListItem {
+  width: 200px;
+  display: flex;
+  flex-shrink: 0;
+  margin-left: 40px;
+}
