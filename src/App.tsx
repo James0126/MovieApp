@@ -46,7 +46,9 @@ function App() {
   return (
     <div className="App">
       <header className="header card-header">
-        <a href="/" className="headerTitle">Movie</a>
+        <a href="/" className="headerTitle">
+          Movie
+        </a>
       </header>
       <section>
         <SearchInput searchMovieFn={searchMovieArray} pageState={pageName} />
