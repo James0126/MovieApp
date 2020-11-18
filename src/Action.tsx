@@ -53,6 +53,7 @@ export async function getMainPageList() {
 
     store.dispatch({ type: getMainList, movies: List });
   } catch (e) {
+    throw new Error(e);
     /* TODO */
   }
 }
@@ -65,6 +66,7 @@ export async function getSearchMovieList(inputs: string) {
     );
     store.dispatch({ type: getSearchList, movies: List });
   } catch (e) {
+    throw new Error(e);
     /* TODO */
   }
 }
@@ -81,6 +83,7 @@ export async function getMovieDetail(id: number) {
     ).then((res) => res.json());
     store.dispatch({ type: getMovieInfo, movies: List });
   } catch (e) {
+    throw new Error(e);
     /* TODO */
   }
 }
@@ -96,6 +99,7 @@ export async function getMovieActors(id: number) {
     ).then((res) => res.json());
     store.dispatch({ type: getMovieActor, movies: List });
   } catch(e){
+    throw new Error(e);
     /* TODO */
   }
 }

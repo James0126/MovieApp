@@ -9,7 +9,6 @@ export default function ActorList({ movieId }: ActorListData) {
     Action.getMovieActors(movieId);
   }, [movieId]);
 
-  console.log(storeState);
   return storeState.movieActors.cast === [] ? (
     <span>로딩중...</span>
   ) : (

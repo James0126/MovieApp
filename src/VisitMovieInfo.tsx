@@ -11,7 +11,6 @@ export default function VisitMovieInfo({ movieId }: MovieIdObject) {
   }, [movieId]);
 
   const storeState = useSelector<StoreState, StoreState>((state) => state);
-  console.log(storeState);
 
   const backgroundImage: string =
     imageBackData + storeState.movieDetail.backdrop_path;
