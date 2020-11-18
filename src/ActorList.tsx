@@ -1,24 +1,21 @@
 import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import ActorListItem from "./ActorListItem";
-import * as Search from "./Search";
-import * as ApiUrl from "./ApiUrl";
+import * as Action from "./Action";
 
 export default function ActorList({ movieId }: ActorListData) {
-  const [loading, setLoading] = useState<boolean>(true);
-  const [actors, setActors] = useState<ActorInfo[]>([]);
-
+  const storeState = useSelector<StoreState, StoreState>((state) => state);
   useEffect(() => {
-    Search.searchActors(ApiUrl.key, setLoading, setActors, movieId);
+    Action.getMovieActors(movieId);
   }, [movieId]);
 
-  return loading ? (
+  console.log(storeState);
+  return storeState.movieActors.cast === [] ? (
     <span>로딩중...</span>
-  ) : !actors ? (
-    <span>정보가 없음</span>
   ) : (
     <section className="actorListWrapper">
       <section className="actorList">
-        {actors.map((a: ActorInfo, index: number) => {
+        {storeState.movieActors.cast.map((a: ActorInfo, index: number) => {
           return <ActorListItem actorData={a} key={index} />;
         })}
       </section>

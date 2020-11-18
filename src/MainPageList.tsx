@@ -3,27 +3,19 @@ import MovieListItem from "./MovieListItem";
 import { useSelector } from "react-redux";
 
 export default function MainPageList({ searchMovieFn }: MovieListProps) {
-  const popularArray = useSelector<MainPageMovieArray, SearchList>(
-    (state) => state.popularArray
+  const movieArray = useSelector<StoreState, StoreState>(
+    (state) => state
   );
-  const topRatedArray = useSelector<MainPageMovieArray, SearchList>(
-    (state) => state.topRatedArray
-  );
-  const nowPlayingArray = useSelector<MainPageMovieArray, SearchList>(
-    (state) => state.nowPlayingArray
-  );
-
-  console.log(popularArray);
 
   return (
     <section className="bodyContent">
       <article className="listWrapper">
         <h2>Popular</h2>
-        <section className="movieList">
-          {popularArray.results === [] ? (
+        <article className="movieList">
+          {movieArray.popularArray.results === [] ? (
             <span>로딩중...</span>
           ) : (
-            popularArray.results.map((a: Movie, index: number) => {
+            movieArray.popularArray.results.map((a: Movie, index: number) => {
               return (
                 <MovieListItem
                   movieData={a}
@@ -35,16 +27,16 @@ export default function MainPageList({ searchMovieFn }: MovieListProps) {
               );
             })
           )}
-        </section>
+        </article>
       </article>
 
       <article className="listWrapper">
         <h2>Top Rated</h2>
-        <section className="movieList">
-          {topRatedArray.results === [] ? (
+        <article className="movieList">
+          {movieArray.topRatedArray.results === [] ? (
             <span>로딩중...</span>
           ) : (
-            topRatedArray.results.map((a: Movie, index: number) => {
+            movieArray.topRatedArray.results.map((a: Movie, index: number) => {
               return (
                 <MovieListItem
                   movieData={a}
@@ -56,16 +48,16 @@ export default function MainPageList({ searchMovieFn }: MovieListProps) {
               );
             })
           )}
-        </section>
+        </article>
       </article>
 
       <article className="listWrapper">
         <h2>Now Playing</h2>
-        <section className="movieList">
-          {nowPlayingArray.results === [] ? (
+        <article className="movieList">
+          {movieArray.nowPlayingArray.results === [] ? (
             <span>로딩중...</span>
           ) : (
-            nowPlayingArray.results.map((a: Movie, index: number) => {
+            movieArray.nowPlayingArray.results.map((a: Movie, index: number) => {
               return (
                 <MovieListItem
                   movieData={a}
@@ -77,7 +69,7 @@ export default function MainPageList({ searchMovieFn }: MovieListProps) {
               );
             })
           )}
-        </section>
+        </article>
       </article>
     </section>
   );

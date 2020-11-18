@@ -50,10 +50,13 @@ interface MovieArrayObject{
     movieArray:Movie[]
 }
 
-interface MainPageMovieArray{
+interface StoreState{
     popularArray:SearchList
     topRatedArray:SearchList
     nowPlayingArray:SearchList
+    searchArray:SearchList
+    movieDetail:Movie
+    movieActors:ActorListObject
 }
 
 interface MovieArrayAction{
@@ -75,6 +78,12 @@ interface ActorInfo{
     name:string
     order:number
     profile_path:string
+}
+
+interface ActorListObject{
+    cast:ActorInfo[]
+    crew:ActorInfo[]
+    id:number
 }
 
 interface ActorListData{
