@@ -17,7 +17,7 @@ interface SearchList{
 }
 
 interface MovieListData{
-    url:string
+    movieArray:Movie[]
     searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
     pageState:string
 }
