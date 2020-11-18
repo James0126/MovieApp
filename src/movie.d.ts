@@ -9,6 +9,13 @@ interface Movie {
     overview: string
 }
 
+interface SearchList{
+    page:number
+    total_results:number
+    total_pages:number
+    results:Movie[]
+}
+
 interface MovieListData{
     url:string
     searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
@@ -41,6 +48,17 @@ interface MovieIdObject{
 
 interface MovieArrayObject{
     movieArray:Movie[]
+}
+
+interface MainPageMovieArray{
+    popularArray:SearchList
+    topRatedArray:SearchList
+    nowPlayingArray:SearchList
+}
+
+interface MovieArrayAction{
+    type:string
+    movies:MainPageMovieArray
 }
 
 interface GetAddres{

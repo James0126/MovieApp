@@ -10,7 +10,7 @@ function App() {
   const [pageName, setPageName] = useState<string>("");
   const [movieId, setMovieId] = useState<number>();
   const [searchQuery, setSearchQuery] = useState<string>("");
-
+  
   const setMovie = (movieId: number) => {
     window.history.pushState(null, "title", "../Info/" + movieId.toString());
     const pageUrl: string[] = window.location.href.split("/");
