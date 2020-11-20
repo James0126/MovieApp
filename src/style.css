@@ -31,9 +31,7 @@
 }
 .movieList {
   display: flex;
-  flex-direction: row;
   overflow-x: auto;
-  height: 400px;
 }
 .movieListItemMain {
   margin-right: 30px;
@@ -121,6 +119,8 @@
 .backGroundImg {
   height: 700px;
   opacity: 0.1;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 .visitTop {
   background-color: #2e2e2e;
@@ -151,7 +151,7 @@
 .actorName {
   font-size: 1.3rem;
 }
-.actorCharacterName {
+.actorCharacter {
   font-size: 1.3rem;
 }
 .actorImg {

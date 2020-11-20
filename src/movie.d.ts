@@ -1,4 +1,4 @@
-interface Movie {
+interface Movie{
     id: number
     title: string
     release_date: string
@@ -16,60 +16,35 @@ interface SearchList{
     results:Movie[]
 }
 
-interface MovieListData{
-    movieArray:Movie[]
-    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-    pageState:string
-}
-interface MovieSearchQuery{
-    query:string
-    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-    pageState:string
-}
-interface MovieListItemData {
-    movieData:Movie
-    index:number
-    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-    pageState:string
+interface MovieList{
+    movies:Movie[]
+    horizontal:boolean
 }
 
-interface MovieListProps{
-    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-}
-
-interface MovieSearchSpace{
-    pageState:string
-    searchMovieFn:MouseEvent<HTMLAnchorElement, MouseEvent>
-}
-
-interface MovieIdObject{
-    movieId:number
+interface MovieListItem {
+    movie:Movie
+    horizontal:boolean
 }
 
 interface MovieArrayObject{
-    movieArray:Movie[]
+    movies:Movie[]
 }
 
 interface StoreState{
-    popularArray:SearchList
-    topRatedArray:SearchList
-    nowPlayingArray:SearchList
-    searchArray:SearchList
+    popular:SearchList
+    topRated:SearchList
+    nowPlaying:SearchList
+    search:SearchList
     movieDetail:Movie
     movieActors:ActorListObject
 }
 
 interface MovieArrayAction{
     type:string
-    movies:MainPageMovieArray
+    movies:MainPageMovies
 }
 
-interface GetAddres{
-    apiAddres:string
-    pageNum:number
-}
-
-interface ActorInfo{
+interface Actor{
     cast_id:number
     character:string
     credit_id:string
@@ -81,15 +56,11 @@ interface ActorInfo{
 }
 
 interface ActorListObject{
-    cast:ActorInfo[]
-    crew:ActorInfo[]
+    cast:Actor[]
+    crew:Actor[]
     id:number
 }
 
-interface ActorListData{
-    movieId:number
-}
-
-interface ActorListItemData{
-    actorData:ActorInfo
+interface ActorListItem{
+    actor:Actor
 }

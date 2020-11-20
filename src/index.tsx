@@ -1,12 +1,12 @@
+import "./index.css";
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import MainRoot from "./MainRoot";
 import reportWebVitals from "./reportWebVitals";
-import StoreController from "./StoreController";
 
 ReactDOM.render(
   <React.StrictMode>
-    <StoreController />
+    <MainRoot />
   </React.StrictMode>,
   document.getElementById("root")
 );
