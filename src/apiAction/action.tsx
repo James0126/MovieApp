@@ -38,7 +38,7 @@ export const initMovies: StoreState = {
   movieActors: initActorList,
 };
 
-export async function getMainPageList() {
+export const getMainPageList = async () => {
   try {
     const list: StoreState = initMovies;
     const popular = await fetch(apiUrl.popular);
@@ -61,9 +61,9 @@ export async function getMainPageList() {
   } catch (e) {
     window.alert(e);
   }
-}
+};
 
-export async function getSearchMovieList(inputs: string) {
+export const getSearchMovieList = async (inputs: string) => {
   try {
     const list: StoreState = initMovies;
     const response = await fetch(apiUrl.searchQuery + inputs);
@@ -76,9 +76,9 @@ export async function getSearchMovieList(inputs: string) {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
-export async function getMovieDetail(id: number) {
+export const getMovieDetail = async (id: number) => {
   try {
     const list: StoreState = initMovies;
     const response = await fetch(
@@ -93,9 +93,9 @@ export async function getMovieDetail(id: number) {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
-export async function getMovieActors(id: number) {
+export const getMovieActors = async (id: number) => {
   try {
     const list: StoreState = initMovies;
     const response = await fetch(
@@ -110,7 +110,7 @@ export async function getMovieActors(id: number) {
   } catch (e) {
     console.log(e);
   }
-}
+};
 
 const reducer = (state = initMovies, action: MovieArrayAction) => {
   switch (action.type) {
