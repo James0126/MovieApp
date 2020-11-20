@@ -9,7 +9,7 @@ const MainPage = () => {
     <section className="bodyContent">
       <article className="listWrapper">
         <h2>Popular</h2>
-        <MovieList movies={movieArray.popular.results} horizontal={true} />
+        <MovieList movies={movieArray.popular.results} horizontal />
       </article>
       <article className="listWrapper">
         <h2>Top Rated</h2>

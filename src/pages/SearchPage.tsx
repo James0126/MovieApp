@@ -1,19 +1,17 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as action from "../apiAction/action";
 import MovieListItem from "../listComponent/MovieListItem";
 
 const SearchPage = () => {
   const movieArray = useSelector<StoreState, StoreState>((state) => state);
-  const history = useHistory();
+  const { search } = useLocation();
   useEffect(() => {
     //사용자에 의해 바뀌기 때문에(검색)
-    const url: string[] = new URLSearchParams(history.location.search)
-      .toString()
-      .split("=");
+    const url: string[] = new URLSearchParams(search).toString().split("=");
     action.getSearchMovieList(url[url.length - 1]);
-  }, [history.location.search]);
+  }, [search]);
 
   return !movieArray.topRated.results.length ? (
     <span>로딩중...</span>

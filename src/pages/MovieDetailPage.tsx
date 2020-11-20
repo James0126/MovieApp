@@ -1,17 +1,18 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
-import { useHistory } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import * as action from "../apiAction/action";
 import * as apiUrl from "../apiAction/apiUrl";
 import ActorList from "../listComponent/ActorList";
 
 const MovieDetailPage = () => {
-  const history = useHistory();
+  const { pathname } = useLocation();
+
   useEffect(() => {
     //사용자에 의해 바뀌기 때문에 받아온 id가 다를때 마다 호출
-    const url: string[] = history.location.pathname.toString().split("/");
+    const url: string[] = pathname.toString().split("/");
     action.getMovieDetail(parseInt(url[url.length - 1]));
-  }, []);
+  }, [pathname]);
 
   const storeState = useSelector<StoreState, StoreState>((state) => state);
   const backgroundImage: string =
@@ -24,10 +25,8 @@ const MovieDetailPage = () => {
       <div className="visitTop">
         <div
           className="backGroundImg"
-          style={{
-            backgroundImage: `url(${backgroundImage})`,
-          }}
-        ></div>
+          style={{ backgroundImage: `url(${backgroundImage})` }}
+        />
       </div>
       <article className="movieVisitInfo">
         <img
@@ -48,9 +47,7 @@ const MovieDetailPage = () => {
           <article className="movieSummary">
             <h2>개요</h2>
             <p className="movieOverView">
-              {storeState.movieDetail.overview === ""
-                ? "정보없음"
-                : storeState.movieDetail.overview}
+              {storeState.movieDetail.overview || "정보없음"}
             </p>
           </article>
         </article>
