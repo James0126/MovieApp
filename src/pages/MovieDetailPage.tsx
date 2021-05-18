@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
+import ActorList from "../listComponent/ActorList";
 import * as action from "../apiAction/action";
 import * as apiUrl from "../apiAction/apiUrl";
-import ActorList from "../listComponent/ActorList";
 
 const MovieDetailPage = () => {
   const { pathname } = useLocation();

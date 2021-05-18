@@ -1,6 +1,6 @@
 import thunk from "redux-thunk";
-import * as apiUrl from "./apiUrl";
 import { createStore, applyMiddleware } from "redux";
+import * as apiUrl from "./apiUrl";
 
 const getMainList = "getMainList";
 const getSearchList = "getSearchList";
@@ -59,7 +59,7 @@ export const getMainPageList = async () => {
       );
     }
   } catch (e) {
-    window.alert(e);
+    console.log(e);
   }
 };
 
@@ -105,7 +105,7 @@ export const getMovieActors = async (id: number) => {
       list.movieActors = await response.json();
       store.dispatch({ type: getMovieActor, movies: list });
     } else {
-      throw new Error(`Detail: ${response.json()}`);
+      throw new Error(`Actor: ${response.json()}`);
     }
   } catch (e) {
     console.log(e);
