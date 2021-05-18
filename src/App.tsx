@@ -1,12 +1,12 @@
 import "./style.css";
 import React, { useEffect } from "react";
 import { Provider } from "react-redux";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import MainPage from "./pages/MainPage";
 import SearchPage from "./pages/SearchPage";
+import * as action from "./apiAction/action";
 import MovieDetailPage from "./pages/MovieDetailPage";
 import SearchInput from "./listComponent/SearchInput";
-import * as action from "./apiAction/action";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 const App = () => {
   useEffect(() => {

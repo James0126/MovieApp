@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import * as apiUrl from "../apiAction/apiUrl";
+import { Link } from "react-router-dom";
 
 const MovieListItem = ({ movie, horizontal }: MovieListItem) => {
   return (
