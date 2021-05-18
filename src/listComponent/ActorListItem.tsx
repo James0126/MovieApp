@@ -8,7 +8,7 @@ const ActorListItem = ({ actor }: ActorListItem) => (
       src={apiUrl.posterImage + actor.profile_path}
       alt="배우 프로필 이미지"
       style={
-        !actor.profile_path ? { width: "250px", height: "300px" } : {}
+        actor.profile_path === null ? { width: "250px", height: "300px" } : {}
       }
     />
     <h1 className="actorName">{actor.name}</h1>

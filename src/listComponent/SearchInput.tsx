@@ -8,7 +8,6 @@ const SearchInput = () => {
 
   const onChange = (e: ChangeEvent<HTMLInputElement>): void =>
     setInputData(e.target.value);
-    
   const searchMovieList = (e: any) => {
     e.preventDefault();
     if (inputData !== "") history.push(`/searchPage/search?query=${inputData}`);
