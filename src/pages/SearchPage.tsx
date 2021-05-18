@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router-dom";
-import * as action from "../apiAction/action";
 import MovieListItem from "../listComponent/MovieListItem";
+import * as action from "../apiAction/action";
 
 const SearchPage = () => {
   const movieArray = useSelector<StoreState, StoreState>((state) => state);
